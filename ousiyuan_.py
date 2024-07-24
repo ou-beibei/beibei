@@ -1,7 +1,7 @@
 '我的主页'
 import streamlit as st
 from PIL import Image
-from collections import Counter
+#from collections import Counter
 from time import *
 
 page = st.sidebar.radio(':orange[_我的首页:sunglasses:_]',['我的兴趣推荐','我的图片处理工具','我的智慧词典','我的留言区','我的成分复杂的图鉴','好用小工具'])
@@ -64,12 +64,13 @@ def page_2():
                 st.image(fan_img(img_2))
     with tab3:
         col1,col2 = st.columns([1,1])
-        if uploaded_file:
-            img_3 = Image.open(uploaded_file)
-            with col1:
-                st.image(img_3)
-            with col2:
-                st.image(xiang_img(img_3))
+        st.subheader(':red[该功能被神秘的力量报废了！]')
+        # if uploaded_file:
+        #     img_3 = Image.open(uploaded_file)
+        #     with col1:
+        #         st.image(img_3)
+        #     with col2:
+        #         st.image(xiang_img(img_3))
     with tab4:
         col1,col2 = st.columns([1,1])
         if uploaded_file:
