@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 #from collections import Counter
-from time import *
+#from time import *
 
 page = st.sidebar.radio(':orange[_我的首页:sunglasses:_]',['我的兴趣推荐','我的图片处理工具','我的智慧词典','我的留言区','我的成分复杂的图鉴','好用小工具'])
 def page_1():
@@ -353,7 +353,7 @@ def page_6():
             for i in range(99):
                 latest_iteration.text(f'{i+1}%')
                 bar.progress(i + 1)
-                sleep(0.1)
+                #sleep(0.1)
             st.write(':red[__蛋糕是个谎言！__]')
         st.write('----')
         st.write(' ')
@@ -492,9 +492,9 @@ def page_6():
         job = st.text_input('请输入1—3条线索（写完再回车）：')
         if job:
             st.write(':red[我猜你是…………]')
-            sleep(3)
+            #sleep(3)
             st.write(':red[生物！]')
-            sleep(1)
+            #sleep(1)
             st.write(':red[得意ing……]')
     with tab5:
         st.subheader('你要去哪？')
