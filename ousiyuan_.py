@@ -353,7 +353,6 @@ def page_6():
             for i in range(99):
                 latest_iteration.text(f'{i+1}%')
                 bar.progress(i + 1)
-                #sleep(0.1)
             st.write(':red[__蛋糕是个谎言！__]')
         st.write('----')
         st.write(' ')
@@ -492,9 +491,7 @@ def page_6():
         job = st.text_input('请输入1—3条线索（写完再回车）：')
         if job:
             st.write(':red[我猜你是…………]')
-            #sleep(3)
             st.write(':red[生物！]')
-            #sleep(1)
             st.write(':red[得意ing……]')
     with tab5:
         st.subheader('你要去哪？')
