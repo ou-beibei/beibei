@@ -1,7 +1,6 @@
 '我的主页'
 import streamlit as st
 from PIL import Image
-from random import *
 from collections import Counter
 from time import *
 
@@ -30,22 +29,31 @@ def page_1():
 def page_2():
     st.title(":sunglasses:图片处理小程序:sunglasses:")
     uploaded_file = st.file_uploader('图片上传:sunglasses:',type=['png','jpeg','jpg'])
-    tab1,tab2,tab3,tab4 = st.tabs(['随机色调','反色调','像素化','战损'])
+    tab1,tab5,tab6,tab2,tab3,tab4 = st.tabs(['调色调1','调色调2','调色调3','反色调','像素化','神秘更改'])
     with tab1:
         col1,col2 = st.columns([1,1])
         if uploaded_file:
-            nums= [0,1,2]
             img_1 = Image.open(uploaded_file)
             with col1:
                 st.image(img_1)
-            rc = choice(nums)
-            nums.remove(rc)
-            rg = choice(nums)
-            nums.remove(rg)
-            rb = choice(nums)
-            nums.remove(rb)
             with col2:
-                st.image(change_img(img_1,rc,rg,rb))
+                st.image(change_img(img_1,1,0,2))
+    with tab5:
+        col1,col2 = st.columns([1,1])
+        if uploaded_file:
+            img_1 = Image.open(uploaded_file)
+            with col1:
+                st.image(img_1)
+            with col2:
+                st.image(change_img(img_1,0,2,1))
+    with tab6:
+        col1,col2 = st.columns([1,1])
+        if uploaded_file:
+            img_1 = Image.open(uploaded_file)
+            with col1:
+                st.image(img_1)
+            with col2:
+                st.image(change_img(img_1,2,1,0))
     with tab2:
         col1,col2 = st.columns([1,1])
         if uploaded_file:
@@ -142,15 +150,15 @@ def page_3():
             words_list[i] = words_list[i].split('#')
         st.write(':blue[__单词秒杀四选一，可以开始了吗？__]')
         if st.button('我准备好了！'):
-            words_l = []
-            words = st.progress(0, '准备开始单词记忆挑战！')
-            for i in range(4, 0, -1):
-                sleep(2)
-                w = choice(words_list)
-                words.progress(i*25, str(w))
-                words_l.append(w)
-            sleep(3)
-            words.progress(0, '开始回答吧！')
+            pass
+            # words_l = []
+            # words = st.progress(0, '准备开始单词记忆挑战！')
+            # for i in range(4, 0, -1):
+            #     sleep(2)
+            #     words.progress(i*25, str(w))
+            #     words_l.append(w)
+            # sleep(3)
+            # words.progress(0, '开始回答吧！')
         st.subheader(':red[编程小老鼠正在加班，敬请期待！]')
         # if words_l:
         #     w = choice(words_l)
@@ -570,7 +578,9 @@ def daxiao_img(img):
             rgb= [r,g,b]
             r_n = max(r,g,b)
             g_n = min(r,g,b)
-            b_n = randint(1,255)
+            b_n = r_n+g_n
+            if b_n > 255:
+                b_n -= 255
             img_array[x,y] = (r_n,b_n,g_n)
     return img
 
