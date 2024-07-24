@@ -549,25 +549,25 @@ def fan_img(img):
             img_array[x,y] = (r,b,g)
     return img
 
-def xiang_img(img):
-    block=img.crop((0,0,10,10))
+# def xiang_img(img):
+#     block=img.crop((0,0,10,10))
 
-    s=5
-    width=img.size[0]
-    height=img.size[1]
+#     s=5
+#     width=img.size[0]
+#     height=img.size[1]
     
-    img_new=Image.new("RGB",img.size)
-    for y in range(0,height,s):
-        for x in range(0,width,s):
-            block=img.crop((x,y,x+s,y+s))
+#     img_new=Image.new("RGB",img.size)
+#     for y in range(0,height,s):
+#         for x in range(0,width,s):
+#             block=img.crop((x,y,x+s,y+s))
     
-            pixel_list=list(block.getdata())
-            most_colors=Counter(pixel_list).most_common(1)[0][0]
-            block_new=Image.new("RGB",block.size,most_colors)        
+#             pixel_list=list(block.getdata())
+#             most_colors=Counter(pixel_list).most_common(1)[0][0]
+#             block_new=Image.new("RGB",block.size,most_colors)        
             
-            img_new.paste(block_new,(x,y))
+#             img_new.paste(block_new,(x,y))
 
-    return img_new
+#     return img_new
 def daxiao_img(img):
     width,height = img.size
     img_array = img.load()
